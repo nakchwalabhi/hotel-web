@@ -1,20 +1,19 @@
-<<<<<<< HEAD
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ⚠️ Warning: Under Development
 
-Currently, two official plugins are available:
+**Please do not use this project yet.** This repository is currently under active development and is not ready for production use. Features and APIs may change without notice.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About This Project
 
-## React Compiler
+This is a weather application built with modern web technologies:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React JS** - A JavaScript library for building user interfaces
+- **Vite** - A fast build tool and development server
+- **Tailwind CSS** - A utility-first CSS framework for styling
 
-## Expanding the ESLint configuration
+The project aims to provide a seamless weather forecasting experience with a responsive and intuitive interface.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# hotel-web
->>>>>>> f466a59d4e3a965cb7ece1e43bcbea9ea6a8a43a
+---
+
+*Check back soon for updates!*
