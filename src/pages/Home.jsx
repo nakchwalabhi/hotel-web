@@ -33,8 +33,8 @@ const Home = () => {
           </div>
         </div>
         <div className="w-1/2 object-cover relative">
-          <img src={elem.img} className="w-full h-full absolute"></img>
-          <img src="/hotel-cover.png" className="w-full h-full absolute"></img>
+          <img src={elem.img} className="w-full h-full absolute rounded-2xl shadow-2xl transition-transform duration-300 ease-out hover:scale-105"></img>
+          {/* <img src="/hotel-cover.png" className="w-full h-full absolute rounded-2xl shadow-2xl hover:scale-95"></img> */}
         </div>
       </div>
     );
