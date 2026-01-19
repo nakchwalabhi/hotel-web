@@ -5,6 +5,8 @@ import Rooms from './pages/Rooms'
 import Contact from './pages/Contact'
 import { Route, Routes } from 'react-router-dom'
 import Section from './components/Section'
+import Testimonials from './components/Testimonials'
+import Footer from './components/Footer'
 
 const App = () => {
  
@@ -16,6 +18,8 @@ const App = () => {
         <Route path="/rooms" element={<Section bg="/rooms-img.png"><Rooms/></Section>} />
         <Route path="/contact" element={<Section bg="/hotel.png"><Contact/></Section>} />
       </Routes>
+      <Testimonials/>
+      <Footer/>
     </>
 
 
