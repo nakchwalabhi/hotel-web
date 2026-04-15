@@ -1,54 +1,52 @@
-import React from "react";
-import Section from "../components/Section";
-import Testimonials from "../components/Testimonials";
-import Footer from "../components/Footer";
+const homeData = [
+  {
+    title: "Luxury redefined",
+    description:
+      "Our rooms are designed for comfort and calm, so every stay feels effortless from check-in to check-out.",
+    img: "/home-room.png",
+  },
+  {
+    title: "Leave your worries in the sand",
+    description:
+      "Wake up to ocean views, curated dining, and warm hospitality that turns every getaway into a lasting memory.",
+    img: "/home-beach.png",
+  },
+];
 
 const Home = () => {
-  const homeData = [
-    {
-      title: "Luxury redefined",
-      description:
-        "Our rooms are designed to transport you into an environment made for leisure. Take your mind off the day-to-day of home life and find a private paradise for yourself.",
-      img: "/home-room.png",
-    },
-    {
-      title: "Leave your worries in the sand",
-      description:
-        "We love life at the beach. Being close to the ocean with access to endless sandy beach ensures a relaxed state of mind.",
-      img: "/home-beach.png",
-    },
-  ];
-  const section1 = homeData.map((elem, idx) => {
-    return (
-      <div key={idx} className=" w-full h-80  mt-15 flex flex-row">
-        <div className=" w-1/2 py-5 px-15 flex justify-center ">
-          <div className="flex flex-col gap-3 h-fit px-10 border-l-2 mt-8">
-            <h1 className="font-bold text-4xl tracking-wide font-[Times_New_Roman] text-[rgb(19,38,74)]">
-              {elem.title}
-            </h1>
-            <p className="text-[1.2rem] font-sans">{elem.description}</p>
-            <button className=" bg-[rgb(222,184,113)] rounded-lg  text-white font-bold uppercase py-2.5 w-fit px-11 hover:scale-105 active:scale-95 transition">
-              Explore
-            </button>
-          </div>
-        </div>
-        <div className="w-1/2 object-cover relative">
-          <img src={elem.img} className="w-full h-full absolute rounded-2xl shadow-2xl transition-transform duration-300 ease-out hover:scale-105"></img>
-          {/* <img src="/hotel-cover.png" className="w-full h-full absolute rounded-2xl shadow-2xl hover:scale-95"></img> */}
-        </div>
-      </div>
-    );
-  });
   return (
-    <div className="flex flex-col gap-5 text-[rgb(19,38,74)]">
-      <div className="h-fit w-full py-10 px-24 pl-0 mt-5">
-        <h1 className="flex justify-center text-2xl font">
-          All our room types are including complementary breakfast
-        </h1>
-        {section1}
+    <section className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-16 lg:py-20">
+      <div className="mx-auto mb-12 max-w-3xl text-center text-slate-900">
+        <h2 className="font-['Times_New_Roman'] text-3xl font-bold sm:text-4xl">A refined escape built around you</h2>
+        <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-lg">
+          All room types include complementary breakfast, premium in-room amenities, and concierge support throughout your stay.
+        </p>
       </div>
-      
-    </div>
+
+      <div className="space-y-10">
+        {homeData.map((item, idx) => (
+          <article
+            key={item.title}
+            className="grid items-center gap-6 overflow-hidden rounded-3xl border border-slate-100 bg-white p-5 shadow-lg md:grid-cols-2 md:p-8"
+          >
+            <div className={`space-y-4 ${idx % 2 === 1 ? "md:order-2" : ""}`}>
+              <h3 className="font-['Times_New_Roman'] text-3xl font-bold text-slate-900">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-600 sm:text-base">{item.description}</p>
+              <button className="rounded-lg bg-amber-300 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-900 transition hover:-translate-y-0.5">
+                Explore
+              </button>
+            </div>
+            <div className={`overflow-hidden rounded-2xl ${idx % 2 === 1 ? "md:order-1" : ""}`}>
+              <img
+                src={item.img}
+                alt={item.title}
+                className="h-64 w-full object-cover transition duration-500 hover:scale-105 sm:h-80"
+              />
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 };
 

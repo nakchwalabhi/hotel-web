@@ -1,13 +1,19 @@
-import React from 'react'
-
-const Gallary = ({src}) => {
+const Gallary = ({ src, title, description }) => {
   return (
-    <div className="flex justify-center mb-10">
-        <div className="rounded-2xl w-[70%] h-2/3  mt-10 flex flex-col gap-10 shadow-2xl transition-transform duration-300 ease-out hover:scale-105">
-        <img src={src} className="w-full h-full rounded-2xl object-cover "></img>
+    <article className="group overflow-hidden rounded-2xl bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
+      <div className="h-60 overflow-hidden sm:h-72 lg:h-64">
+        <img
+          src={src}
+          alt={title}
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+        />
       </div>
+      <div className="space-y-2 p-5">
+        <h3 className="font-['Times_New_Roman'] text-2xl font-bold text-slate-900">{title}</h3>
+        <p className="text-sm leading-relaxed text-slate-600">{description}</p>
       </div>
-  )
-}
+    </article>
+  );
+};
 
-export default Gallary
+export default Gallary;

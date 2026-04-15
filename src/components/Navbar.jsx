@@ -1,38 +1,69 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+
+const navItems = [
+  { to: "/", label: "Home" },
+  { to: "/facilities", label: "Facilities" },
+  { to: "/rooms", label: "Rooms" },
+  { to: "/contact", label: "Contact" },
+];
+
+const linkClass = ({ isActive }) =>
+  `text-sm md:text-base tracking-wide transition-colors ${
+    isActive ? "text-amber-300" : "text-white hover:text-amber-200"
+  }`;
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="flex gap-20 justify-between items-center px-36">
-      <div
-        className="py-5 px-8 rounded-b-4xl bg-[rgb(222,184,113)] font-['Times_New_Roman',Times,serif] flex flex-col  
-"
-      >
-        <h1 className="font-bold text-2xl text-[rgb(19,38,74)] tracking-widest">
-          LUXURY
-        </h1>
-        <p className="font-bold flex justify-center text-[10px] tracking-widest">
-          H O T E L S
-        </p>
+    <header className="relative z-30 px-5 py-4 sm:px-8 lg:px-16">
+      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-white/15 bg-slate-950/45 px-4 py-3 backdrop-blur-md sm:px-6">
+        <NavLink to="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
+          <div className="rounded-xl bg-amber-300 px-3 py-2 text-center font-['Times_New_Roman'] leading-none text-slate-900 shadow-lg">
+            <p className="text-base font-bold tracking-[0.3em]">LUX</p>
+            <p className="text-[0.58rem] tracking-[0.42em]">HOTELS</p>
+          </div>
+          <span className="hidden text-sm font-semibold uppercase tracking-[0.35em] text-white/90 sm:block">
+            Luxury Hotels
+          </span>
+        </NavLink>
+
+        <nav className="hidden items-center gap-7 md:flex">
+          {navItems.map((item) => (
+            <NavLink key={item.to} to={item.to} className={linkClass}>
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
+
+        <button
+          type="button"
+          className="inline-flex items-center rounded-lg border border-white/40 px-3 py-2 text-sm text-white md:hidden"
+          onClick={() => setIsOpen((prev) => !prev)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? "Close" : "Menu"}
+        </button>
       </div>
-      <div className="flex justify-between gap-10 py-5 text-white font-medium text-xl ">
-        <Link to="/" className="relative group ">
-          Home
-          <span className="absolute left-0 -bottom-1 w-full h-0.5  bg-white scale-x-0 origin-center transition-transform duration-300 group-hover:scale-x-100"></span>
-        </Link>
-        <Link to="/facilities" className="relative group">
-          Facilities
-          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 origin-center transition-transform duration-300 group-hover:scale-x-100"></span>
-        </Link>
-        <Link to="/rooms" className="relative group">
-          Rooms
-          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 origin-center transition-transform duration-300 group-hover:scale-x-100"></span>
-        </Link>
-        <Link to="/contact" className="relative group">
-          Contact-us
-          <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-white scale-x-0 origin-center transition-transform duration-300 group-hover:scale-x-100"></span>
-        </Link>
-      </div>
-    </div>
+
+      {isOpen && (
+        <nav className="mt-3 rounded-2xl border border-white/15 bg-slate-950/80 px-4 py-3 backdrop-blur-xl md:hidden">
+          <div className="flex flex-col gap-3">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={linkClass}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
+        </nav>
+      )}
+    </header>
   );
 };
 
